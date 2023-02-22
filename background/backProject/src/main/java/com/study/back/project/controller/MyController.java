@@ -14,10 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
     @GetMapping("/toback")
-    public String toback(@RequestParam("username") String username) {
-        System.out.println(username);
-        System.out.println(username);
-        System.out.println(username);
+    public String toback(@RequestParam("username") String username,@RequestParam("password") String password) {
+        System.out.println("username = " + username);
+        System.out.println("password = " + password);
         return "成功";
     }
 }
