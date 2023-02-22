@@ -1,10 +1,8 @@
 package com.study.back.project.controller;
 
+import com.study.back.project.bean.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: Rrow
@@ -17,6 +15,12 @@ public class MyController {
     public String toback(@RequestParam("username") String username,@RequestParam("password") String password) {
         System.out.println("username = " + username);
         System.out.println("password = " + password);
+        return "成功";
+    }
+
+    @GetMapping("/toBean")
+    public String toBean(User user) {  // RequestBoby需要前端传json
+        System.out.println("user = " + user);
         return "成功";
     }
 }
