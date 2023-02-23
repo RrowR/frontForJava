@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: Rrow
@@ -17,4 +18,6 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
     private int id;
+    private String sex;
+    private List<String> fav;
 }

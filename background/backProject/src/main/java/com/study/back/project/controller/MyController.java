@@ -3,6 +3,9 @@ package com.study.back.project.controller;
 import com.study.back.project.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * @author: Rrow
@@ -18,9 +21,12 @@ public class MyController {
         return "成功";
     }
 
-    @GetMapping("/toBean")
-    public String toBean(User user) {  // RequestBoby需要前端传json
+    @PostMapping("/toBean")
+    public String toBean(User user, MultipartFile avatar) throws IOException {  // RequestBoby需要前端传json
         System.out.println("user = " + user);
+        System.out.println("avatar.getName() = " + avatar.getOriginalFilename());
+        byte[] bytes = avatar.getBytes();
+        System.out.println("bytes.length = " + bytes.length);
         return "成功";
     }
 }
