@@ -1,6 +1,7 @@
 package com.study.back.project.controller;
 
 import com.study.back.project.bean.User;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
