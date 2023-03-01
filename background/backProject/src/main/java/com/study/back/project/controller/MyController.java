@@ -30,4 +30,16 @@ public class MyController {
         System.out.println("bytes.length = " + bytes.length);
         return "成功";
     }
+
+    @GetMapping("/test")
+    public String getMethod(String name) {
+        System.out.println("name = " + name);
+        return "success";
+    }
+
+    @PostMapping("/test")
+    public String postMethod(String name) {
+        System.out.println("name = " + name);
+        return "success";
+    }
 }

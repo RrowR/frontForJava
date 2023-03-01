@@ -1,0 +1,17 @@
+/*  类选择器  */
+#i3 {
+    background-color: rebeccapurple;
+    /* display: none; */
+    display: block;
+}
+
+/* 标签选择器 */
+p {
+    background-color: aqua;
+}
+
+
+/* 类选择器 */
+.c3 {
+    background-color: slategrey
+}
