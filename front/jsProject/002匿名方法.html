@@ -8,12 +8,14 @@
 </head>
 <body>
     <p id="i1">点我一下</p>
+    <p id="i2">我是箭头函数的标签，请点击我一下</p>
 </body>
 <script>
     document.getElementById("i1").onclick = (
         function(){
             console.log("我被点击了");
         }
-    )
+    );
+    document.getElementById("i2").onclick = () => console.log("箭头函数触发的点击");
 </script>
 </html>
