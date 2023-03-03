@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>匿名方法给元素点击添加绑定事件</title>
+</head>
+<body>
+    <p id="i1">点我一下</p>
+</body>
+<script>
+    document.getElementById("i1").onclick = (
+        function(){
+            console.log("我被点击了");
+        }
+    )
+</script>
+</html>

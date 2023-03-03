@@ -16,7 +16,7 @@ import java.io.IOException;
 @RestController
 public class MyController {
     @GetMapping("/toback")
-    public String toback(@RequestParam("username") String username,@RequestParam("password") String password) {
+    public String toback(@RequestParam("username") String username, @RequestParam("password") String password) {
         System.out.println("username = " + username);
         System.out.println("password = " + password);
         return "成功";
@@ -41,5 +41,10 @@ public class MyController {
     public String postMethod(String name) {
         System.out.println("name = " + name);
         return "success";
+    }
+
+    @RequestMapping("/page")
+    @ResponseBody
+    public void page(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
     }
 }
