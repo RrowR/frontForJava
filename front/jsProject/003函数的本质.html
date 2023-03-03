@@ -21,11 +21,20 @@
         console.log("aaaaaaa");
     }
 
+    // 将函数对象作为参数传进来
     function b(fn) {
         console.log("bbbbbbb");
         fn();       // 还要执行传进来的函数对象
     }
 
+    // 函数对象作为返回值参数 返回的函数对象要调用里面的方法还需要再调用一次
+    function c() {
+        console.log("c");
+        function d(){
+            console.log("d");
+        }
+        return d;
+    }
 
 </script>
 
