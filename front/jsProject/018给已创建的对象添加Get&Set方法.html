@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给已创建的对象添加Get&Set方法</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let user = {_name:null};
+    Object.defineProperty(user,"name",{
+        get(){
+            return this._name;
+        
+        },
+        set(name){
+            return this._name = name;
+        }
+    });
+
+</script>
+</html>
