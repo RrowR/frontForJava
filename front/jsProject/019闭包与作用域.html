@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包与作用域</title>
+</head>
+
+<body>
+    <p>闭包的意思就是函数里面嵌套函数，内部函数可以访问外部函数的变量，外部函数无法访问内部函数的变量</p>
+</body>
+<script>
+    /* let会给花括号（非方法）划分作用域，而var不会，当为var时，里面的a会把外面的a给覆盖
+    只有var外层有方法的时候，才会划分作用域
+    */
+    var a = 10;
+    if (true) {
+        var a = 20;
+        console.log(a);
+    }
+    console.log(a);
+
+    // 给var划分作用域的写法
+    var c = 10;
+    if (true) {
+        function m1() {
+            var c = 20;
+            console.log(c);
+        }
+    }
+    console.log(c);
+</script>
+
+</html>
