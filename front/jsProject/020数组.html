@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+<body>
+    <p>push(E e)  向尾部添加一个元素</p>
+    <p>Shift()方法用于把数组的第一个元素从其中删除，并返回第一个元素的值</p>
+    <p>splice()方法从数组中删除项目指定索引下的元素个数，然后返回被删除的项目</p>
+</body>
+<script>
+    let arr = [1,2,3];
+    // 向尾部添加一个元素
+    arr.push(4);
+    // 里面可以传入匿名函数
+    arr.forEach(function(item){
+        console.log(item);
+    });
+    console.log("-----arr.shift();-----");
+    // Shift()方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+    let returnValue = arr.shift();
+    console.log("returnValue = " + returnValue);
+    arr.forEach(function(item){
+        console.log(item);
+    });
+    // splice()方法从数组中删除项目指定索引下的元素个数，然后返回被删除的项目。
+    console.log("-----arr.splice(1,1);-----");
+    let returnValue2 = arr.splice(1,1);
+    console.log("returnValue2 = " + returnValue2);
+
+
+    
+</script>
+</html>
