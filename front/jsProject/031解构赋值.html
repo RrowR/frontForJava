@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>031解构赋值</title>
+</head>
+<body>
+    <p>031解构赋值</p>
+</body>
+<script>
+    // [] 解构赋值的使用
+    let arr = [1,2,3];
+    let [a,b,c] = arr;
+    console.log(a,b,c);
+
+    // [] 用在申明参数时
+    function test([a,b,c]) {
+        console.log(a,b,c);
+    }
+
+    // {} 对象的解构赋值
+    let obj = {name:"猫羽雫",age:16};
+    let {name,age} = obj;
+    console.log(name,age);
+
+    // {} 方法参数的解构复制
+    function test2({name,age}) {
+        // 这个是test2方法
+        console.log("这个是test2方法");
+        console.log(name,age);
+    }
+</script>
+</html>
