@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For in</title>
+</head>
+
+<body>
+    <p>for in</p>
+</body>
+<script>
+    let shuzuku = { name: "猫羽雫", age: 16, study: function () { console.log("学习") } };
+    for (let n in shuzuku) {
+        // 这里貌似只能获取到属性名
+        console.log(n);
+    }
+
+    // 遍历子类的时候父类属性也会被遍历出来
+    let necoha = Object.create(shuzuku);
+    necoha.necoName = "necoha";
+    for (let i in necoha) {
+        console.log(i);
+    }
+    // 当i是变量的时候，要取key对应的value的值,不能使用.n来实现 需要用[]
+    for (let i in necoha) {
+        console.log(i,necoha[i]);
+    }
+</script>
+
+</html>
