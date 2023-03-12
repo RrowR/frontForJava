@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>028Json和JS对象</title>
+</head>
+<body>
+    <p>028Json和JS对象</p>
+</body>
+<script>
+    console.log("Json和JS对象的区别");
+    console.log("Json是字符串,JS对象是对象");
+    console.log("Json中的属性名必须用双引号包裹,JS对象中的属性名可以用双引号也可以用单引号包裹");
+    console.log("Json中的属性值必须是基本数据类型,JS对象中的属性值可以是基本数据类型也可以是引用数据类型");
+    console.log("Json中的属性名必须是字符串,JS对象中的属性名可以是字符串也可以是数字");
+
+    // Json字符串和js对象的转换
+    // JSON.parse(jsonStr); // 将Json字符串转换为js对象
+    // JSON.stringify(jsObj); // 将js对象转换为Json字符串
+
+    // 这个样子的字符串才是一个json
+    let json1 = `{
+        "name":"猫羽雫",
+        "age":16
+    }`
+
+    let obj1 = JSON.parse(json1);
+    console.log(obj1);
+
+    // 将js对象转换为json字符串
+    let obj1ParseJson = JSON.stringify(obj1);
+    
+</script>
+</html>
