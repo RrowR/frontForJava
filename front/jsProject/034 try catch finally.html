@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try catch finally</title>
+</head>
+
+<body>
+    <p>try catch</p>
+</body>
+<script>
+    let obj1 = { name: "猫羽雫", age: 16 };
+    let obj2 = { name: "猫羽雫", age: 16, address: { city: "北京" } };
+    function test(obj) {
+        try {
+            // 这里如果是对象的属性的话，还会是undefined,必须要内嵌一个对象才会抛出异常
+            console.log(obj.address.city);
+        } catch (e) {
+            console.log("进入了catch语句块", e.message);
+        } finally {
+            console.log("进入了finally语句块");
+        }
+    }
+
+</script>
+
+</html>
