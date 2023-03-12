@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>030展开运算符</title>
+</head>
+<body>
+    <p>030展开运算符 ...</p>
+    <p>...arr就是展开运算符，将数组中的每一个元素都展开</p>
+    <p>复制数组和对象</p>
+    <p>合并数组和对象</p>
+</body>
+<script>
+    let arr = [1,2,3];
+    function test(a,b,c) {
+        console.log(a,b,c);
+    }
+    // 1.这里的...arr就是展开运算符，将数组中的每一个元素都展开
+    test(...arr);
+
+    // 2.复制一个新数组
+    let arr2 = [...arr];
+
+    let obj1 = {"name":"猫羽雫",age:16};
+    // 3.复制一个对象,这是一个浅拷贝
+    let obj2 = {...obj1};
+    obj1.name = "nachoco";
+    console.log("obj2: " + obj2.name);
+    console.log("obj1: " + obj1.name);
+
+
+    // 4.合并对象和数组
+    let a1 = [1,2];
+    let a2 = [3,4];
+    let a3 = [...a1,...a2];
+    a3.forEach(x => console.log(x));
+    // 合并2个对象的属性
+    let o1 = {name:"猫羽雫"};
+    let o2 = {age:16};
+    let o3 = {...o1,...o2};
+    console.log(o3);
+    
+</script>
+</html>
