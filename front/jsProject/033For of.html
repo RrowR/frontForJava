@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>033For of</title>
+</head>
+
+<body>
+    <p>033For of</p>
+</body>
+<script>
+    // for of 遍历数组
+    let arr = [1, 2, 3];
+    for (let i of arr) {
+        console.log(i);
+    }
+
+    // for of 遍历字符串
+    let str = "hello";
+    for (let i of str) {
+        console.log(i);
+    }
+
+    // for of 遍历对象数组
+    let shuzuku = [
+        { name: "猫羽雫", age: 16 },
+        { name: "1111", age: 11 },
+        { name: "2222", age: 22 },
+    ]
+    // 这里的{ name, age }是解构赋值，相当于obj.name obj.age
+    for (let { name, age } of shuzuku) {
+        console.log(name, age);
+    }
+</script>
+
+</html>
