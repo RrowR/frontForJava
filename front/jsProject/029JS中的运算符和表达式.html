@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>029JS中的运算符和表达式</title>
+</head>
+<body>
+    <p>029JS中的运算符和表达式</p>
+</body>
+<script>
+    // 幂运算
+    console.log(2 ** 2);
+    // 严格相等运算符
+    console.log(1 === "1");
+    console.log(1 === 1);
+    // typeof运算符
+    console.log(typeof 1);
+    console.log(typeof "1");
+    let user = {
+        name: "猫羽雫",
+        age: 16
+    };
+    console.log(typeof user);
+    console.log(typeof null);
+    console.log(typeof undefined);
+    console.log(typeof NaN);
+    console.log(typeof Symbol());
+    console.log(typeof function () {});
+
+    // ?? 与 ?. 的使用方法
+    function test(n) {
+        // ?? 的意思就是当传入的n为null或者undefined时，就使用后面的值
+        n = n ?? '男';
+        console.log(n);
+    }
+
+    // ?. 的意思就是当传入的对象中的属性不存在时，就不会报错，而是返回undefined
+    let user1 = {
+        name: "猫羽雫",
+        age: 16,
+        address: {
+            city: "北京"
+        }
+    };
+    console.log(user1?.address?.city);
+    // 这里使用的?.是因为address1是不存在的，会出现undefined
+    console.log(user1?.address1?.city);
+    // 但是如果使用了.的话，就会报错
+    console.log(user1.address1.city);
+
+
+
+</script>
+</html>
