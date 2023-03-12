@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>026基于函数的原型继承</title>
+</head>
+<body>
+    <p>027基于函数的原型继承</p>
+</body>
+<script>
+    // 基于函数的原型继承
+    function cons(f2){
+        // 创建子对象(this),给子对象提供属性和方法
+        this.f2 = f2;
+        this.m2 = function(){
+            console.log("子方法");
+        }
+    }
+
+    // 创建父对象,给父对象提供属性和方法 cons.prototype 就是父对象
+    cons.prototype.f1 = "父属性";
+    cons.prototype.m1 = function(){
+        console.log("父方法");
+    }
+
+    let son = new cons("子属性");
+    console.dir(son);
+</script>
+</html>
