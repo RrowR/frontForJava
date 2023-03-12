@@ -2,3 +2,4 @@
 .DS_Store
 background/backProject/backProject.iml
 .idea
+/front/nodejsProject/client/node_modules
