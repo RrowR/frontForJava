@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>025箭头函数的this理解</title>
+</head>
+
+<body>
+    <p>025箭头函数的this理解</p>
+</body>
+<script>
+    // 定义一个user对象,名字为猫羽雫,有一个数组,里面有3个字符串名字,有一个play方法,使用foreach方法遍历并打印所有数组里的名字
+    let user = {
+        name: "猫羽雫",
+        friends: ["小明", "小红", "小刚"],
+        play() {
+            this.friends.forEach(function (item) {
+                // 这里的this代表的是window全局对象
+                console.log(this.name + "和" + item + "一起玩");
+            })
+        }
+    }
+
+    // 将上面user对象里的play方法改成箭头函数
+    let user2 = {
+        name: "猫羽雫",
+        friends: ["小明", "小红", "小刚"],
+        play() {
+            this.friends.forEach(item => {
+                // 这里的this代表的是user2这个对象
+                console.log(this.name + "和" + item + "一起玩");
+            })
+        }
+    }
+
+    // 不使用箭头函数改变上面的this指向,这种做法出现在没有出现箭头函数之前
+    let user3 = {
+        name: "猫羽雫",
+        friends: ["小明", "小红", "小刚"],
+        play() {
+            let that = this;
+            this.friends.forEach(function (item) {
+                // 这里做一层引用赋值,将this赋值给that,这样that就代表的是user3这个对象
+                console.log(that.name + "和" + item + "一起玩");
+            })
+        }
+    }
+
+
+</script>
+
+</html>
