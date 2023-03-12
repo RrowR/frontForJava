@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this 对象</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function study(subject){
+        // 当this什么都不指定的时候,这里代表的是window全局对象
+        console.log(this.name + "在学习" + subject);
+    }
+
+    let user = {
+        name:"猫羽雫",
+        // 当时对象调用方法时,方法里的this代表的时user这个对象
+        study
+    }
+
+    // 动态改变this的指向
+    let user2 = {name:"nachoco"}
+    study.call(user2,"JavaScript");
+</script>
+</html>
