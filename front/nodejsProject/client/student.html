@@ -1,40 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>学生列表</title>
 </head>
+
 <body>
-    <table border="1">
-        <tr>
-            <th>编号</th>
-            <th>姓名</th>
-            <th>性别</th>
-            <th>年龄</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>张三</td>
-            <td>男</td>
-            <td>18</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>李四</td>
-            <td>男</td>
-            <td>19</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>王五</td>
-            <td>男</td>
-            <td>20</td>
-        </tr>
+    <div>
+        <div class="title">学生列表</div>
+        <div class="thead">
+            <div class="row bold">
+                <div class="col">编号</div>
+                <div class="col">姓名</div>
+                <div class="col">性别</div>
+                <div class="col">年龄</div>
+            </div>
+        </div>
+        <div class="tbody">
+            <div class="row">
+                <div class="col">1</div>
+                <div class="col">张三</div>
+                <div class="col">男</div>
+                <div class="col">18</div>
+            </div>
+            <div class="row">
+                <div class="col">2</div>
+                <div class="col">李四</div>
+                <div class="col">男</div>
+                <div class="col">19</div>
+            </div>
+        </div>
+    </div>
 
-        
-    
+    <script>
+        /*
+        // 获取第一个
+        document.querySelector(".title");  
+        // 获取第一个的内容，也可以通过赋值来修改类选择器里文本的内容
+        document.querySelector(".title").innerHTML; 
+        // 也能获取文本内容，但是textConent不会解析html标签  innerText也是一样
+        document.querySelector(".title").textContent;
+        // 清空tbody
+        document.querySelector(".tbody").innerHTML = ''; 
+        document.querySelector(".tbody").textContent = '';
+        */
 
+    </script>
+
+    <style>
+        html,
+        body {
+            font-family: 华文行楷;
+            font-size: 20px;
+        }
+
+        .title {
+            margin-bottom: 10px;
+            font-size: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .row {
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .col {
+            border: 1px solid #f0f0f0;
+            width: 15%;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+        }
+
+        .bold .col {
+            background-color: #f1f1f1;
+        }
+    </style>
 </body>
+
 </html>
