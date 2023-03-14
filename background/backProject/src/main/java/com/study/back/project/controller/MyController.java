@@ -1,12 +1,16 @@
 package com.study.back.project.controller;
 
+import com.study.back.project.bean.Student;
 import com.study.back.project.bean.User;
+import com.study.back.project.mapper.StudentMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author: Rrow
@@ -15,6 +19,10 @@ import java.io.IOException;
  */
 @RestController
 public class MyController {
+
+    @Autowired
+    private StudentMapper studentMapper;
+
     @GetMapping("/toback")
     public String toback(@RequestParam("username") String username, @RequestParam("password") String password) {
         System.out.println("username = " + username);
@@ -46,5 +54,13 @@ public class MyController {
     @RequestMapping("/page")
     @ResponseBody
     public void page(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int size) {
+    }
+
+    // 返回学生数据的接口
+    @CrossOrigin("http://localhost:7070")
+    @GetMapping("/getStudent")
+    public Object getStudent(){
+        List<Student> students = studentMapper.selectList(null);
+        return students;
     }
 }

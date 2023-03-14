@@ -1,3 +1,23 @@
+server:
+    port: 8080
 spring:
-    application:
-        name: 后台服务
+    datasource:
+        username: test
+        password: test
+        url: jdbc:mysql://ecs01:3306/server?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+# ====================MybatisPlus====================
+mybatis-plus:
+    mapper-locations: mapper/*.xml
+    # \u8BBE\u7F6E\u522B\u540D
+    type-aliases-package: com.study.mall.*.model
+    configuration:
+        map-underscore-to-camel-case: true
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#\u65E5\u5FD7\u914D\u7F6E
+logging:
+    pattern:
+        console: "%msg%n"
