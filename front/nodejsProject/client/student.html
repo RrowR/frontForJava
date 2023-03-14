@@ -19,21 +19,20 @@
                 <div class="col">年龄</div>
             </div>
         </div>
+
         <div class="tbody">
-            <div class="row">
-                <div class="col">1</div>
-                <div class="col">张三</div>
-                <div class="col">男</div>
-                <div class="col">18</div>
-            </div>
-            <div class="row">
-                <div class="col">2</div>
-                <div class="col">李四</div>
-                <div class="col">男</div>
-                <div class="col">19</div>
-            </div>
         </div>
     </div>
+
+    <!-- 模板，用于抽取重复的代码 -->
+    <template id="tp">
+        <div class="row">
+            <div class="col">2</div>
+            <div class="col">李四</div>
+            <div class="col">男</div>
+            <div class="col">19</div>
+        </div>
+    </template>
 
     <script>
         /*
@@ -47,7 +46,26 @@
         document.querySelector(".tbody").innerHTML = ''; 
         document.querySelector(".tbody").textContent = '';
         */
-
+        let array = [
+            { id: 1, name: '猫羽雫', sex: '女', age: 14 },
+            { id: 2, name: 'nachoco', sex: '女', age: 15 },
+            { id: 3, name: 'shuzuku', sex: '女', age: 16 },
+        ];
+        // 题目，将数组里的元素弄到tbody里去 这里获取id不需要加 . 
+        const tp = document.getElementById("tp");
+        const row = tp.content;
+        // 这个是id为tp标签里的每一个col,这里不能直接从tp里取到col是，要先取row才可以,强烈注意，这里非对象，要用[]才可以
+        const [c1, c2, c3, c4] = row.querySelectorAll('.col');
+        const tbody = document.querySelector(".tbody");
+        for (const { id, name, sex, age } of array) {
+            c1.textContent = id;
+            c2.textContent = name;
+            c3.textContent = sex;
+            c4.textContent = age;
+            // 将tp的内容赋值一份，然后赋值给tbody
+            let newNode = row.cloneNode(true);
+            tbody.appendChild(newNode);
+        }
     </script>
 
     <style>
