@@ -35,7 +35,7 @@
     </template>
 
     <script>
-        fetch('http://localhost:8080/getStudent')
+        fetch('/api/getStudent')
             .then(resp => resp.json())  // 这里返回的是一个promise对象，不能直接用
             .then(array => {
                 // 题目，将数组里的元素弄到tbody里去 这里获取id不需要加 . 

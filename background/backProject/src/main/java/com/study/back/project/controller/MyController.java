@@ -57,8 +57,8 @@ public class MyController {
     }
 
     // 返回学生数据的接口
-    @CrossOrigin("http://localhost:7070")
-    @GetMapping("/getStudent")
+    // @CrossOrigin("http://localhost:7070")
+    @GetMapping("/api/getStudent")
     public Object getStudent(){
         List<Student> students = studentMapper.selectList(null);
         return students;
