@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试导入导出</title>
+</head>
+
+<body>
+    <script type="module">
+        // import { a, b, c } from './mytest.js'
+        // console.log(a, b);
+        // c();
+        // import x from './mytest.js'
+        // console.log(x);
+
+        // 整体导入
+        import * as m from "./mytest.js"
+        console.log(m.a, m.b);
+        m.c();
+        console.log(m.default);
+    </script>
+
+</body>
+
+</html>
