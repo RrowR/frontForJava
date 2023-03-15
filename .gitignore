@@ -3,3 +3,5 @@
 background/backProject/backProject.iml
 .idea
 /front/nodejsProject/client/node_modules
+/front/myvue2/client/node_modules/
+front/myvue2/client/node_modules/http-parser-js/http-parser.js
