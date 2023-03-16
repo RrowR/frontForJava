@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import App from './App.vue'
-import e1 from './views/Demo5属性计算.vue'
+import e1 from './views/006axios基础.vue'
 import router from './router'
 import store from './store'
 
