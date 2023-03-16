@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -82,7 +83,7 @@ public class MyController {
     }
 
     @PostMapping("/api/post03")
-    public String post03(String name,int age) {
+    public String post03(String name, int age) {
         System.out.println("name = " + name);
         System.out.println("age = " + age);
         return "post with parameter name is " + name + " age is " + age;
@@ -93,9 +94,36 @@ public class MyController {
         System.out.println("nya = " + nya);
         return "post with parameter is domain " + nya;
     }
+
     @PostMapping("/api/json01")
     public String json01(@RequestBody Nya nya) {
         System.out.println("nya = " + nya);
         return "post with parameter is domain " + nya;
+    }
+
+    @PostMapping("/api/json02")
+    @CrossOrigin("http://localhost:7070")
+    public String json02(@RequestBody Nya nya) {
+        System.out.println("nya = " + nya);
+        return "post with parameter is domain " + nya;
+    }
+
+    @PostMapping("/api/axget")
+    @CrossOrigin(value = "http://localhost:7070", allowCredentials = "true")
+    public String axget(HttpSession httpSession) {
+        System.out.println("进入了get方法");
+        System.out.println("httpSession.getId() = " + httpSession.getId());
+        System.out.println("httpSession.getAttribute(\"name\") = " + httpSession.getAttribute("name"));
+        return "post with parameter is axget";
+    }
+
+
+    @PostMapping("/api/axset")
+    @CrossOrigin(value = "http://localhost:7070", allowCredentials = "true")
+    public String axset(HttpSession httpSession) {
+        System.out.println("进入了set方法");
+        System.out.println("httpSession.getId() = " + httpSession.getId());
+        httpSession.setAttribute("name", "猫羽雫");
+        return "post with parameter is axset";
     }
 }
