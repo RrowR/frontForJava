@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import App from './App.vue'
-import e1 from './views/Demo4双向数据绑定.vue'
+import e1 from './views/Demo5属性计算.vue'
 import router from './router'
 import store from './store'
 
