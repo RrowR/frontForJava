@@ -109,7 +109,7 @@ public class MyController {
     }
 
     @PostMapping("/api/axget")
-    @CrossOrigin(value = "http://localhost:7070", allowCredentials = "true")
+    // @CrossOrigin(value = "http://localhost:7070", allowCredentials = "true")
     public String axget(HttpSession httpSession) {
         System.out.println("进入了get方法");
         System.out.println("httpSession.getId() = " + httpSession.getId());
@@ -119,7 +119,7 @@ public class MyController {
 
 
     @PostMapping("/api/axset")
-    @CrossOrigin(value = "http://localhost:7070", allowCredentials = "true")
+    // @CrossOrigin(value = "http://localhost:7070", allowCredentials = "true")
     public String axset(HttpSession httpSession) {
         System.out.println("进入了set方法");
         System.out.println("httpSession.getId() = " + httpSession.getId());
