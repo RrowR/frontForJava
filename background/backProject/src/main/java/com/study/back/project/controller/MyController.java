@@ -1,5 +1,6 @@
 package com.study.back.project.controller;
 
+import com.study.back.project.bean.Nya;
 import com.study.back.project.bean.Student;
 import com.study.back.project.bean.User;
 import com.study.back.project.mapper.StudentMapper;
@@ -59,8 +60,42 @@ public class MyController {
     // 返回学生数据的接口
     // @CrossOrigin("http://localhost:7070")
     @GetMapping("/api/getStudent")
-    public Object getStudent(){
+    public Object getStudent() {
         List<Student> students = studentMapper.selectList(null);
         return students;
+    }
+
+    @GetMapping("/api/get01")
+    public String get01() {
+        return "request mapping";
+    }
+
+    @PostMapping("/api/post01")
+    public String post01() {
+        return "post mapping";
+    }
+
+    // 获取请求头的接口
+    @PostMapping("/api/post02")
+    public String post02(@RequestHeader("Authorization") String authorization) {
+        return "post with header authorization is " + authorization;
+    }
+
+    @PostMapping("/api/post03")
+    public String post03(String name,int age) {
+        System.out.println("name = " + name);
+        System.out.println("age = " + age);
+        return "post with parameter name is " + name + " age is " + age;
+    }
+
+    @PostMapping("/api/post04")
+    public String post04(Nya nya) {
+        System.out.println("nya = " + nya);
+        return "post with parameter is domain " + nya;
+    }
+    @PostMapping("/api/json01")
+    public String json01(@RequestBody Nya nya) {
+        System.out.println("nya = " + nya);
+        return "post with parameter is domain " + nya;
     }
 }
