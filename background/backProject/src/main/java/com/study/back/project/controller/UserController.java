@@ -5,6 +5,7 @@ import com.study.back.project.dto.StudentQueryDto;
 import com.study.back.project.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -27,5 +28,11 @@ public class UserController {
     @GetMapping("/api/student02")
     public R student02(StudentQueryDto queryDto) {
         return R.ok(studentMapper.selectById(queryDto.age()));
+    }
+
+    @PostMapping("/api/student01post")
+    public R student01post() {
+        System.out.println("into all");
+        return R.ok(studentMapper.selectList(null));
     }
 }

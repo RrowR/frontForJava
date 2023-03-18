@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import App from './App.vue'
-import e1 from './views/008响应状态码.vue'
+import e1 from './views/010响应拦截器.vue'
 import router from './router'
 import store from './store'
 
