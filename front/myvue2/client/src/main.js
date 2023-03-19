@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import App from './App.vue'
-import e1 from './views/014数据表格.vue'
+import e1 from './views/015分页组件.vue'
 import router from './router'
 import store from './store'
 // elementui导入
