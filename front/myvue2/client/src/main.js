@@ -1,10 +1,15 @@
 import Vue from 'vue'
 // import App from './App.vue'
-import e1 from './views/011封装myaxios的js文件.vue'
+import e1 from './views/012ElementUI.vue'
 import router from './router'
 import store from './store'
+// elementui导入
+import Element from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false
+// elementui使用
+Vue.use(Element);
 
 new Vue({
   router,
