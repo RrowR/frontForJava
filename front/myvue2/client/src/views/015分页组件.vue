@@ -12,7 +12,10 @@
             <el-table-column prop="photo" label="相册">
             </el-table-column>
         </el-table>
-        <el-pagination background layout="prev, pager, next" :total="100" :page-size="20" :current-page="3">
+
+
+        <el-pagination background layout="prev, pager, next, jumper,sizes,->, total" :total="100" :page-sizes="[5,10,15,20]"
+            :current-page="3">
         </el-pagination>
     </div>
 </template>
