@@ -1,7 +1,11 @@
 package com.study.back.project.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.study.back.project.bean.Student;
+
+import java.util.List;
 
 /**
 * @author Rrow
@@ -11,16 +15,7 @@ import com.study.back.project.bean.Student;
 */
 public interface StudentMapper extends BaseMapper<Student> {
 
-    int deleteByPrimaryKey(Long id);
 
-    int insert(Student record);
-
-    int insertSelective(Student record);
-
-    Student selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Student record);
-
-    int updateByPrimaryKey(Student record);
+    List<Student> selectPage(int page,int pageSize);
 
 }

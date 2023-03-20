@@ -1,5 +1,8 @@
 package com.study.back.project.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.study.back.project.bean.Student;
 import com.study.back.project.dto.R;
 import com.study.back.project.dto.StudentQueryDto;
 import com.study.back.project.mapper.StudentMapper;
@@ -7,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author: Rrow
@@ -23,6 +28,13 @@ public class UserController {
     public R all() {
         System.out.println("into all");
         return R.ok(studentMapper.selectList(null));
+    }
+
+    @GetMapping("/api/student01/q")
+    public R q(int page, int pageSize) {
+        System.out.println("into q");
+        List<Student> studentList = studentMapper.selectPage((page - 1) * pageSize, pageSize);
+        return R.ok(studentList);
     }
 
     @GetMapping("/api/student02")

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.back.project.mapper.StudentMapper">
+
+
+    <select id="selectPage" resultType="com.study.back.project.bean.Student">
+        select * from student limit #{page},#{pageSize}
+    </select>
+</mapper>

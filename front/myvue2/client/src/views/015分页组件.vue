@@ -14,9 +14,11 @@
         </el-table>
 
 
-        <el-pagination background layout="prev, pager, next, jumper,sizes,->, total" :total="100" :page-sizes="[5,10,15,20]"
-            :current-page="3">
-        </el-pagination>
+        <el-pagination layout="prev, pager, next, sizes,->, total" :total="100" :page-sizes="[5, 10, 15, 20]"
+            :page-size="queryDao.pageSize" :current-page="queryDao.page" @current-change="currentChange"
+            @size-change="sizeChange"
+            >
+            </el-pagination>
     </div>
 </template>
 <script>
@@ -24,16 +26,32 @@ import axios from '../utils/myaxios';
 const options = {
     async mounted() {
         // 编写一下axios的使用
-        const resp = await axios.get("/api/student01");
+        const resp = await axios.get("/api/student01/q", {
+            params: this.queryDao
+        });
         this.students = resp.data.data;
         // console.log(resp.data.data);
     },
     // 定义了vue里的data数据
     data() {
         return {
-            students: []
+            students: [],
+            queryDao: {
+                page: 1,
+                pageSize: 5
+            }
         }
-    }
+    },
+    methods: {
+        currentChange(page) {
+            console.log(page);
+            this.queryDao.page = page;
+        },
+        sizeChange(size){
+            console.log(size);
+            this.queryDao.pageSize = size;
+        }
+    },
 }
 export default options;
 </script>
