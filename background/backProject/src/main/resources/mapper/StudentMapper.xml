@@ -8,4 +8,21 @@
     <select id="selectPage" resultType="com.study.back.project.bean.Student">
         select * from student limit #{page},#{pageSize}
     </select>
+
+    <select id="selectForm" resultType="com.study.back.project.bean.Student">
+        select * from student
+            <where>
+                <if test="name != null and name != ''">
+                    and name like concat('%',#{name},'%')
+                </if>
+                <if test="age != null and age != ''">
+                    and age = #{age}
+                </if>
+                <if test="sex != null and sex != ''">
+                    and sex = #{sex}
+                </if>
+            </where>
+
+            limit #{page},#{pageSize}
+    </select>
 </mapper>

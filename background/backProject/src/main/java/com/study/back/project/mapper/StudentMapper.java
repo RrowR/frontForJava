@@ -18,4 +18,6 @@ public interface StudentMapper extends BaseMapper<Student> {
 
     List<Student> selectPage(int page,int pageSize);
 
+
+    List<Student> selectForm(int page, int pageSize, String sex, String age, String name);
 }

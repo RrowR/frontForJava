@@ -37,6 +37,13 @@ public class UserController {
         return R.ok(studentList);
     }
 
+    @GetMapping("/api/student01/q2")
+    public R q2(int page, int pageSize,String sex,String age,String name) {
+        System.out.println("into q2");
+        List<Student> studentList = studentMapper.selectForm((page - 1) * pageSize, pageSize,sex,age,name);
+        return R.ok(studentList);
+    }
+
     @GetMapping("/api/student02")
     public R student02(StudentQueryDto queryDto) {
         return R.ok(studentMapper.selectById(queryDto.age()));
