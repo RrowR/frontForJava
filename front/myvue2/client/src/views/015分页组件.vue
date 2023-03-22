@@ -24,12 +24,12 @@
 <script>
 import axios from '../utils/myaxios';
 const options = {
-    async mounted() {
+    mounted() {
         // 编写一下axios的使用
-        const resp = await axios.get("/api/student01/q", {
-            params: this.queryDao
-        });
-        this.students = resp.data.data;
+        // const resp = await axios.get("/api/student01/q", {
+        //     params: this.queryDao
+        // });
+        this.query();
         // console.log(resp.data.data);
     },
     // 定义了vue里的data数据
@@ -44,13 +44,19 @@ const options = {
     },
     methods: {
         currentChange(page) {
-            console.log(page);
             this.queryDao.page = page;
+            this.query();
         },
         sizeChange(size){
-            console.log(size);
             this.queryDao.pageSize = size;
-        }
+            this.query();
+        },
+        async query() {
+            const resp = await axios.get("/api/student01/q",{
+                params: this.queryDao
+            });
+            this.students = resp.data.data;
+        }   
     },
 }
 export default options;
