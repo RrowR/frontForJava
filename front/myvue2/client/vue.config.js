@@ -10,5 +10,8 @@ module.exports = defineConfig({
         changeOrigin: true,
       }
     }
-  }
+  },
+  assetsDir: 'static',
+  parallel: false,
+  publicPath: './',
 })
