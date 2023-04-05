@@ -4,7 +4,6 @@
     </div>
 </template>
 <script>
-console.log("11111");
 const options = {
     methods: {
         jump(url) {

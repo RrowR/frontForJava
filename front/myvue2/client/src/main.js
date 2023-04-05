@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import App from './App.vue'
-import e1 from './views/018Router路由.vue'
+import e1 from './views/019Router嵌套.vue'
 // import router from './router'
 // import router from './router/myrouter'
 import router from './router/dynamicRouter'

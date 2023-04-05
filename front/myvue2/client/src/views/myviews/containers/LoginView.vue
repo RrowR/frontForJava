@@ -4,7 +4,6 @@
     </div>
 </template>
 <script>
-console.log("22222");
 </script>
 <style scoped>
 .login {
