@@ -1,7 +1,8 @@
 import Vue from 'vue'
 // import App from './App.vue'
-import e1 from './views/017Cascade多层菜单表.vue'
-import router from './router'
+import e1 from './views/018Router路由.vue'
+// import router from './router'
+import router from './router/myrouter'
 import store from './store'
 // elementui导入
 import Element from 'element-ui';
