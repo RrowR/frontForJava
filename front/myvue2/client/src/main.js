@@ -2,7 +2,7 @@ import Vue from 'vue'
 // import App from './App.vue'
 import e1 from './views/018Router路由.vue'
 // import router from './router'
-import router from './router/myrouter'
+import router from './router/dynamicRouter'
 import store from './store'
 // elementui导入
 import Element from 'element-ui';
