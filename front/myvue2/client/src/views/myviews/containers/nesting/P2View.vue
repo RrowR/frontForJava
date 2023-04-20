@@ -1,15 +1,10 @@
 <template>
-    <div class="p">
-        p2
-    </div>
+    <div class="p"></div>
 </template>
-<script>
-    console.log("p2进来了");
-</script>
 <style scoped>
 .p {
     background-color:wheat;
-    background-image: url("https://zfile.rrow.link/s/gqw9qg");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='15' y='10' font-size='14' font-family='system-ui, sans-serif' text-anchor='middle' dominant-baseline='middle'%3EP2%3C/text%3E%3C/svg%3E");
     height:100%;
 }
 </style>

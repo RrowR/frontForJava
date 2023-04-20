@@ -1,7 +1,5 @@
 <template>
-    <div class="p">
-        p3
-    </div>
+    <div class="p"></div>
 </template>
 <style scoped>
 .p {

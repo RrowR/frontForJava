@@ -11,7 +11,7 @@ const routes = [
   {
     path: "/",
     component: () => import("@/views/myviews/containers/ContainerView"),
-    redirect: "c/p2", // 这里会在访问首页的时候自动跳转到c/p2
+    // redirect: "c/p2", // 这里会在访问首页的时候自动跳转到c/p2
     children: [
       {
         path: "c/p1",
