@@ -1,64 +1,50 @@
 <template>
-  <div class="container">
+  <div>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-header>header</el-header>
       <el-container>
-        <el-header>Header</el-header>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
+        <el-aside width="200px">aside</el-aside>
+        <el-main>main</el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 <script>
-const options = {
-  methods: {
-    jump(url) {
-      this.$router.push(url);
-    },
-  },
-};
-export default options;
+  console.log("020页面布局.vue");
 </script>
-<style scoped>
-.container {
-  height: 800px;
-  background-color: cornsilk;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.el-container {
-  height: 100%;
-}
-
-.el-header {
-  background-color: aquamarine;
+<style>
+.el-header,
+.el-footer {
+  background-color: #f5890e;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
 }
 
 .el-aside {
-  background-color: gold;
+  background-color: #f1ee0a;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
 }
 
 .el-main {
-  background-color: dodgerblue;
+  background-color: #5fddee;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
 }
 
-a {
-  text-decoration: none;
-  display: block;
-  margin: 10px 10px 0 10px;
-  padding: 3px;
-  font-size: 13px;
+body > .el-container {
+  margin-bottom: 40px;
 }
 
-.router-link-active {
-  color: #fff;
-  background-color: darkslateblue;
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
 }
 
-.el-button {
-  margin-top: 15px;
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
 }
 </style>
