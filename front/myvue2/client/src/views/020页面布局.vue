@@ -1,9 +1,14 @@
 <template>
   <div>
+    div
     <el-container>
       <el-header>header</el-header>
       <el-container>
-        <el-aside width="200px">aside</el-aside>
+        <el-aside width="200px">
+          <router-link to="/c/p1">p1</router-link>
+          <hr>
+          <router-link to="/c/p2">p2</router-link>
+        </el-aside>
         <el-main>
           <router-view></router-view>
           <!-- main -->
@@ -13,7 +18,7 @@
   </div>
 </template>
 <script>
-  console.log("020页面布局.vue");
+console.log("020页面布局.vue");
 </script>
 <style>
 .el-header,
@@ -50,4 +55,11 @@ body > .el-container {
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
 }
+
+.router-link-active {
+    color: #fff;
+    background-color: darkslateblue;
+}
+
+
 </style>
