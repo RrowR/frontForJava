@@ -17,12 +17,31 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item>
+            <el-submenu index="1">
               <span slot="title">
                 <i class="el-icon-location"></i>
                 菜单1
               </span>
-            </el-menu-item>
+              <el-menu-item>
+                <span slot="title">
+                  <i class="el-icon-phone"></i>
+                  子项1
+                </span>
+              </el-menu-item>
+              <el-menu-item>
+                <span slot="title">
+                  <i class="el-icon-more"></i>
+                  子项2
+                </span>
+              </el-menu-item>
+              <el-menu-item>
+                <span slot="title">
+                  <i class="el-icon-warning-outline"></i>
+                  子项3
+                </span>
+              </el-menu-item>
+            </el-submenu>
+
             <el-menu-item>
               <span slot="title">
                 <i class="el-icon-setting"></i>
