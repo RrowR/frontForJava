@@ -12,7 +12,8 @@
       </el-header>
       <el-container>
         <el-aside width="200px">
-          <el-menu
+          <!-- 这里一定要加上router,不然不会跳转 -->
+          <el-menu router
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b"
@@ -22,23 +23,11 @@
                 <i class="el-icon-location"></i>
                 菜单1
               </span>
-              <el-menu-item>
-                <span slot="title">
-                  <i class="el-icon-phone"></i>
+              <el-menu-item index="/c/p1">
                   子项1
-                </span>
               </el-menu-item>
-              <el-menu-item>
-                <span slot="title">
-                  <i class="el-icon-more"></i>
+              <el-menu-item index="/c/p2">
                   子项2
-                </span>
-              </el-menu-item>
-              <el-menu-item>
-                <span slot="title">
-                  <i class="el-icon-warning-outline"></i>
-                  子项3
-                </span>
               </el-menu-item>
             </el-submenu>
 
