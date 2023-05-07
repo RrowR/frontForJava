@@ -11,4 +11,6 @@ import com.study.back.project.dto.Menu;
  */
 public interface MenuMapper extends BaseMapper<Menu> {
     List<Menu> selectList();
+
+    List<Menu> findByUser(String username);
 }

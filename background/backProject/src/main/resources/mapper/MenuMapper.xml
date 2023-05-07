@@ -6,6 +6,20 @@
 
 
     <select id="selectList" resultType="com.study.back.project.dto.Menu">
-        select * from menu
+        select *
+        from menu
     </select>
+    <!-- 根据用户名查询对应用户的角色,再根据查询出来的用户角色id去查询对应用户拥有的所有菜单 -->
+    <select id="findByUser" resultType="com.study.back.project.dto.Menu">
+        select m.* from menu m
+                            inner join role_menu rm on m.id=rm.menu_id
+        where rm.role_id in
+              (
+                  select ur.role_id from user_role ur
+                                             inner join user u on ur.user_id=u.id
+                  where u.username = #{username}
+              )
+    </select>
+
+
 </mapper>
