@@ -11,7 +11,7 @@
 <script>
 // 使用自己封装的带有代理的axios
 import axios from "@/utils/myaxios.js";
-import { resetRouter } from "@/router/022dynamicRouter.js";
+import { resetRouter,addRoutes } from "@/router/022dynamicRouter.js";
 const options = {
   data() {
     return {
@@ -20,24 +20,12 @@ const options = {
   },
   methods: {
     async login() {
+      // 因为vue2没有这种写法
       resetRouter(); // 用于重置路由
       const resp = await axios.get("/api/menu/" + this.username);
+      // 从服务器里返回的信息,并取值
       const array = resp.data.data;
-      console.log(array);
-      console.log(this.$router.getRoutes());
-      for (const { id, path, component } of array) {
-        // 判断一下是否为空
-        if (component != null) {
-          this.$router.addRoute("c", {
-            path: path,
-            name: id,
-            // 这里要用反引号,才能解析到变量
-            component: () =>
-              import(`@/views/myviews/containers2/pages/${component}`),
-          });
-        }
-      }
-      console.log(this.$router.getRoutes());
+      addRoutes(array); // 用于添加路由的方法
     },
   },
 };
