@@ -25,6 +25,12 @@ const options = {
       const resp = await axios.get("/api/menu/" + this.username);
       // 从服务器里返回的信息,并取值
       const array = resp.data.data;
+      // localStorage 浏览器关闭,数据不会丢失
+      // sessionStorage 浏览器关闭,数据会丢失
+
+      // 将路由信息保存到sessionStorage里
+      sessionStorage.setItem("sessionRoutes",JSON.stringify(array));
+
       addRoutes(array); // 用于添加路由的方法
     },
   },

@@ -57,6 +57,14 @@ export function resetRouter() {
   router.matcher = new VueRouter({ routes }).matcher;
 }
 
+const sessionRoutes =  sessionStorage.getItem('sessionRoutes');
+const array = JSON.parse(sessionRoutes);
+// 不需要使用表达式,可以直接判断是否为空
+if (array) {
+  addRoutes(array);
+}
+
+
 // 抽取方法,添加服务器返回的路由信息
 export function addRoutes(array) {
   console.log(array);
