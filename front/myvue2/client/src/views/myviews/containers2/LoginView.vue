@@ -22,7 +22,7 @@ const options = {
     async login() {
       // 因为vue2没有这种写法
       resetRouter(); // 用于重置路由
-      const resp = await axios.get("/api/menu/" + this.username);
+      const resp = await axios.get("/api/menu/" + this.username);  // 这是根据用户名来查询用户权限的噢
       // 从服务器里返回的信息,并取值
       const array = resp.data.data;
       // localStorage 浏览器关闭,数据不会丢失
@@ -32,6 +32,7 @@ const options = {
       sessionStorage.setItem("sessionRoutes",JSON.stringify(array));
 
       addRoutes(array); // 用于添加路由的方法
+      this.$router.push("/"); // 跳转到首页
     },
   },
 };

@@ -1,34 +1,42 @@
 import axios from 'axios'
 const _axios = axios.create({
     baseURL: 'http://localhost:8080',
-    withCredentials: true,  // 允许跨域携带cookie ,这里允许携带cookie后,后端也要设置 allowCredentials = "true" 才可以
-});
-// 请求拦截器
-_axios.interceptors.request.use(function (config) {
-    // 在发送请求之前做些什么
-    config.headers = {
-        Authorization: "Bearer 11111",
-    }
-    return config;
-}, function (error) {
-    // 对请求错误做些什么
-    return Promise.reject(error);
+    withCredentials: true
 });
 
-_axios.interceptors.response.use(function (response) {
-    // 对响应数据做点什么
-    return response;
-}, function (error) {
-    // 对响应错误做点什么
-    if (error.response.status == 401) {
-        console.log("进入了401");
-    } else if (error.response.status == 403) {
-        console.log("进入了403");
-    } else if (error.response.status == 404) {
-        console.log("进入了404");
+// 9. 拦截器
+_axios.interceptors.request.use(
+    function (config) {
+        // 比如在这里添加统一的 headers
+        config.headers = {
+            Authorization: 'aaa.bbb.ccc'
+        }
+        return config;
+    },
+    function (error) {
+        return Promise.reject(error);
     }
-    return Promise.reject(error);
-});
+);
 
-// 注意记得导出一下
+_axios.interceptors.response.use(
+    function (response) {
+        // 2xx 范围内走这里
+        return response;
+    },
+    function (error) {
+        if (error.response?.status === 400) {
+            console.log('请求参数不正确');
+            return Promise.resolve(400);
+        } else if (error.response?.status === 401) {
+            console.log('跳转至登录页面');
+            return Promise.resolve(401);
+        } else if (error.response?.status === 404) {
+            console.log('资源未找到');
+            return Promise.resolve(404);
+        }
+        // 超出 2xx, 比如 4xx, 5xx 走这里
+        return Promise.reject(error);
+    }
+);
+
 export default _axios;

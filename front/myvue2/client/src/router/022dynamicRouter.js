@@ -11,32 +11,10 @@ const routes = [
     path: "/",
     id: "c",
     component: () => import("@/views/myviews/containers2/ContainerView.vue"),
-    redirect: "/login",
-    children: [
-      {
-        path: "c1/p1",
-        component: () =>
-          import("@/views/myviews/containers2/nesting/P1View.vue"),
-      },
-      {
-        path: "c1/p2",
-        component: () =>
-          import("@/views/myviews/containers2/nesting/P2View.vue"),
-      },
-      {
-        path: "c1/p3",
-        component: () =>
-          import("@/views/myviews/containers2/nesting/P3View.vue"),
-      },
-    ],
   },
   {
     path: "/login",
     component: () => import("@/views/myviews/containers2/LoginView.vue"),
-  },
-  {
-    path: "/p1",
-    component: () => import("@/views/myviews/containers2/NotFoundView.vue"),
   },
   {
     path: "/404",
@@ -67,8 +45,8 @@ if (array) {
 
 // 抽取方法,添加服务器返回的路由信息
 export function addRoutes(array) {
-  console.log(array);
-      console.log(router.getRoutes());
+  // console.log(array);
+      // console.log(router.getRoutes());
       for (const { id, path, component } of array) {
         // 判断一下是否为空
         if (component != null) {
