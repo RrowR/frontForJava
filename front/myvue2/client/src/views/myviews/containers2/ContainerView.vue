@@ -5,12 +5,12 @@
       <el-container>
         <el-aside width="200px">
           <el-menu router background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :unique-opened="true">
-            <template v-for="m1 of top"> 
+            <template v-for="m1 in top"> 
                 <el-submenu v-if="m1.children" :key="m1.id" :index="m1.path">
                     <span slot="title">
                         <i :class="m1.icon"></i> {{ m1.name }}
                     </span> 
-                    <el-menu-item v-for="m2 of m1.children" :key="m2.id" :index="m2.path">
+                    <el-menu-item v-for="m2 in m1.children" :key="m2.id" :index="m2.path">
                         <span slot="title">
                         <i :class="m2.icon"></i> {{ m2.name }}
                     </span>
