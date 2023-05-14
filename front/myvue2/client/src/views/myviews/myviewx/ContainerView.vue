@@ -30,7 +30,12 @@ const options = {
     /* 
         使用mapState生成的计算属性
     */
-    computed: mapState(['name', 'age'])
+    // computed: mapState(['name', 'age'])
+
+    computed: {
+        // 和上面方法的作用是一样的,可以将对象进行展开
+        ...mapState(['name', 'age'])
+    }
 
 }
 export default options;
