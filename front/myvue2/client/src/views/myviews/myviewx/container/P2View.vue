@@ -5,20 +5,10 @@
     </div>
 </template>
 <script>
-// 使用 mapActions 调用 actions
-/* import { mapActions } from 'vuex'
+import { mapActions } from 'vuex';
 const options = {
-    methods: {
-        ...mapActions(['updateServerName'])
-    }
-} */
-
-const options = {
-    methods: {
-        updateServerName() {
-            this.$store.dispatch('updateServerName')
-            // 返回 Promise
-        }
+    methods:{
+        ...mapActions(['updateServerName']),
     }
 }
 export default options;
