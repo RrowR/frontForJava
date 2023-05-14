@@ -2,7 +2,7 @@
     <div class="container">
         <el-container>
             <el-header>
-                <div class="t">欢迎您：{{ name }}, {{ age }}</div>
+                <div class="t">欢迎您：{{ name }},{{ age }}</div>
             </el-header>
             <el-container>
                 <el-aside width="200px">
@@ -16,7 +16,15 @@
 </template>
 <script>
 const options = {
-    
+    computed:{
+        name(){
+            return this.$store.state.name;
+        },
+        age(){
+            return this.$store.state.age;
+        }
+
+    }
 }
 export default options;
 </script>

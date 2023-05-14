@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'c',
-    redirect: '/p2',
+    // redirect: '/p2',
     component: () => import('@/views/myviews/myviewx/ContainerView.vue'),
     children: [
       {
