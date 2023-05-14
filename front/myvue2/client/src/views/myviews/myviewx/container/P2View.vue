@@ -5,10 +5,16 @@
     </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+// import { mapActions } from 'vuex';
 const options = {
     methods:{
-        ...mapActions(['updateServerName']),
+        // ...mapActions(['updateServerName']),
+
+        updateServerName() {
+            // 返回的是一个promise对象,实现手动调用actions方法
+            this.$store.dispatch('updateServerName');
+        }
+
     }
 }
 export default options;
