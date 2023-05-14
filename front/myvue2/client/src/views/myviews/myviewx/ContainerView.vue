@@ -15,16 +15,23 @@
     </div>
 </template>
 <script>
-const options = {
-    computed:{
-        name(){
-            return this.$store.state.name;
-        },
-        age(){
-            return this.$store.state.age;
-        }
+import { mapState } from 'vuex';
 
-    }
+const options = {
+    // computed:{
+    //     name(){
+    //         return this.$store.state.name;
+    //     },
+    //     age(){
+    //         return this.$store.state.age;
+    //     }
+    // }
+    
+    /* 
+        使用mapState生成的计算属性
+    */
+    computed: mapState(['name', 'age'])
+
 }
 export default options;
 </script>
