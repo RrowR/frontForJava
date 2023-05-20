@@ -1,5 +1,6 @@
 package com.study.elementadmin.background;
 
+import com.study.elementadmin.background.controller.LoginInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,8 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class ElementAdminApplication implements WebMvcConfigurer {
     @Bean
-    public com.itheima.controller.LoginInterceptor loginInterceptor() {
-        return new com.itheima.controller.LoginInterceptor();
+    public LoginInterceptor loginInterceptor() {
+        return new LoginInterceptor();
     }
 
     @Override
