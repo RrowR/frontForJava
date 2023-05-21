@@ -4,6 +4,7 @@
 
       <div class="title-container">
         <h3 class="title">
+          <!-- $t就是国际化的一个命令 -->
           {{ $t('login.title') }}
         </h3>
         <lang-select class="set-language" />
@@ -49,6 +50,7 @@
       </el-tooltip>
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
+        <!-- $t国际化函数 -->
         {{ $t('login.logIn') }}
       </el-button>
 
@@ -91,14 +93,17 @@ export default {
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
+        // 用户信息错误提示(这里还没有国际化)
         callback(new Error('Please enter the correct user name'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 1) {
-        callback(new Error('The password can not be less than 6 digits'))
+      // 当用户输入的密码长度小于下列值时,前端页面会触发提示,$t会从国际化文件里取内容
+      if (value.length < 2) {
+        // callback(new Error('The password can not be less than 6 digits'))
+        callback(new Error(this.$t('login.passwordError')))
       } else {
         callback()
       }
