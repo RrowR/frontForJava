@@ -3,7 +3,7 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
 const state = {
-  token: getToken(),
+  // token: getToken(),
   name: '',
   avatar: '',
   introduction: '',
@@ -11,10 +11,10 @@ const state = {
 }
 
 const mutations = {
-  SET_TOKEN: (state, token) => {
-    // mutations将令牌存到了state里(这里是共享变量)
-    state.token = token
-  },
+  // SET_TOKEN: (state, token) => {
+  //   // mutations将令牌存到了state里(这里是共享变量)
+  //   state.token = token
+  // },
   SET_INTRODUCTION: (state, introduction) => {
     state.introduction = introduction
   },
@@ -39,7 +39,7 @@ const actions = {
           //  结构一次,又取了一次data,之前响应拦截器已经取了一次data,这次是已经彻底取完,可以直接拿数据了
           const { data } = body
           // 调用mutations中的方法,传入参数,这里是一个共享变量,所以可以直接调用
-          commit('SET_TOKEN', data.token)
+          // commit('SET_TOKEN', data.token)
           // 将后端返回的token存到cookie中
           setToken(data.token)
           resolve()
@@ -52,7 +52,7 @@ const actions = {
   // get user info
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token).then(response => {
+      getInfo(getToken()).then(response => {
         const { data } = response
 
         if (!data) {
@@ -80,8 +80,8 @@ const actions = {
   // user logout
   logout({ commit, state, dispatch }) {
     return new Promise((resolve, reject) => {
-      logout(state.token).then(() => {
-        commit('SET_TOKEN', '')
+      logout(getToken()).then(() => {
+        // commit('SET_TOKEN', '')
         commit('SET_ROLES', [])
         removeToken()
         resetRouter()
@@ -100,7 +100,7 @@ const actions = {
   // remove token
   resetToken({ commit }) {
     return new Promise(resolve => {
-      commit('SET_TOKEN', '')
+      // commit('SET_TOKEN', '')
       commit('SET_ROLES', [])
       removeToken()
       resolve()
@@ -111,7 +111,7 @@ const actions = {
   async changeRoles({ commit, dispatch }, role) {
     const token = role + '-token'
 
-    commit('SET_TOKEN', token)
+    // commit('SET_TOKEN', token)
     setToken(token)
 
     const { roles } = await dispatch('getInfo')

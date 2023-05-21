@@ -15,12 +15,13 @@ service.interceptors.request.use(
   config => {
     // do something before request is sent
 
-    if (store.getters.token) {
+    const token = getToken()
+    if (token) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
       // please modify it according to the actual situation
       // 这里编辑了一个请求头,拦截请求,在请求头中添加了token,token从cookie(getToken)中取
-      config.headers['Authorization'] = getToken()
+      config.headers['Authorization'] = token
     }
     return config
   },
