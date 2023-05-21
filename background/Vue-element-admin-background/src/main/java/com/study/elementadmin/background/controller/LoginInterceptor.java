@@ -30,7 +30,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
         switch (interceptorMode) {
             case JWT -> {
-                String token = request.getHeader("Authorization");
+                String token = request.getHeader("Authorization");   // 从请求里获取请求头,这里由前端塞进来了
                 if (token == null) {
                     token = request.getParameter("token");
                     if (token == null) {
