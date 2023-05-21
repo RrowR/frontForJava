@@ -56,32 +56,53 @@ const actions = {
     setToken(body.data.token)
   },
 
-  // get user info
-  getInfo({ commit, state }) {
-    return new Promise((resolve, reject) => {
-      getInfo(getToken()).then(response => {
-        const { data } = response
+  // // get user info
+  // getInfo({ commit, state }) {
+  //   return new Promise((resolve, reject) => {
+  //     // 根据token令牌返回用户信息,jwt里有带用户信息
+  //     getInfo(getToken()).then(response => {
+  //       // 从响应的resp里结构data
+  //       const { data } = response
 
-        if (!data) {
-          reject('Verification failed, please Login again.')
-        }
+  //       if (!data) {
+  //         // 如果为空,则返回错误
+  //         reject('Verification failed, please Login again.')
+  //       }
 
-        const { roles, name, avatar, introduction } = data
+  //       // 继续结构data里的其他属性
+  //       const { roles, name, avatar, introduction } = data
 
-        // roles must be a non-empty array
-        if (!roles || roles.length <= 0) {
-          reject('getInfo: roles must be a non-null array!')
-        }
+  //       // roles must be a non-empty array
+  //       if (!roles || roles.length <= 0) {
+  //         reject('getInfo: roles must be a non-null array!')
+  //       }
 
-        commit('SET_ROLES', roles)
-        commit('SET_NAME', name)
-        commit('SET_AVATAR', avatar)
-        commit('SET_INTRODUCTION', introduction)
-        resolve(data)
-      }).catch(error => {
-        reject(error)
-      })
-    })
+  //       // commit都是用来调用mutations里的方法,间接存储到state里
+  //       commit('SET_ROLES', roles)
+  //       commit('SET_NAME', name)
+  //       commit('SET_AVATAR', avatar)
+  //       commit('SET_INTRODUCTION', introduction)
+  //       // 将数据返回出去
+  //       resolve(data)
+  //     }).catch(error => {
+  //       reject(error)
+  //     })
+  //   })
+  // },
+
+  // 自己修改成同步的方法
+  async getInfo({ commit, state }) {
+    const { data } = await getInfo(getToken())
+    const { roles, name, avatar, introduction } = data
+    if (!roles || roles.length <= 0) {
+      throw '查询的权限不存在'
+    }
+
+    commit('SET_ROLES', roles)
+    commit('SET_NAME', name)
+    commit('SET_AVATAR', avatar)
+    commit('SET_INTRODUCTION', introduction)
+    return roles
   },
 
   // user logout
@@ -104,7 +125,7 @@ const actions = {
     })
   },
 
-  // remove token
+  //
   resetToken({ commit }) {
     return new Promise(resolve => {
       // commit('SET_TOKEN', '')
