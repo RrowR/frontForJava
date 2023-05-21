@@ -198,7 +198,7 @@ export default {
           //   this.loading = false
           // }
           try {
-            // 直接调用actions里的方法
+            // 直接调用actions里的方法,主要的目的是存放token,这里存放到vuex里的代码已经全部被改成了cookie
             await this.login(this.loginForm)
             this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
             // 将loading效果关闭
