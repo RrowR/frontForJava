@@ -12,6 +12,7 @@ const state = {
 
 const mutations = {
   SET_TOKEN: (state, token) => {
+    // mutations将令牌存到了state里(这里是共享变量)
     state.token = token
   },
   SET_INTRODUCTION: (state, introduction) => {
@@ -29,18 +30,22 @@ const mutations = {
 }
 
 const actions = {
-  // user login
+  // user login 方法,commit其实就是context.commit 结构出来了而已
   login({ commit }, userInfo) {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response => {
-        const { data } = response
-        commit('SET_TOKEN', data.token)
-        setToken(data.token)
-        resolve()
-      }).catch(error => {
-        reject(error)
-      })
+      login({ username: username.trim(), password: password })
+        .then(body => {
+          //  结构一次,又取了一次data,之前响应拦截器已经取了一次data,这次是已经彻底取完,可以直接拿数据了
+          const { data } = body
+          // 调用mutations中的方法,传入参数,这里是一个共享变量,所以可以直接调用
+          commit('SET_TOKEN', data.token)
+          // 将后端返回的token存到cookie中
+          setToken(data.token)
+          resolve()
+        }).catch(error => {
+          reject(error)
+        })
     })
   },
 

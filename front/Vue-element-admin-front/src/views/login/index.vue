@@ -166,7 +166,7 @@ export default {
         this.$refs.password.focus()
       })
     },
-    ...mapActions('user', ['login']),
+    ...mapActions('user', ['login']), // 选择user.js模块下的login方法(在action里)
     handleLogin() {
       // 获取在refs里取了名字的组件
       console.log(this.$refs)
@@ -198,6 +198,7 @@ export default {
           //   this.loading = false
           // }
           try {
+            // 直接调用actions里的方法
             await this.login(this.loginForm)
             this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
             // 将loading效果关闭
