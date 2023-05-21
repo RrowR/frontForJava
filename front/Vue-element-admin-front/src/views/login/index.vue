@@ -49,7 +49,7 @@
         </el-form-item>
       </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
+      <el-button ref="abcLogin" :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
         <!-- $t国际化函数 -->
         {{ $t('login.logIn') }}
       </el-button>
@@ -86,6 +86,7 @@
 import { validUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 import SocialSign from './components/SocialSignin'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Login',
@@ -121,7 +122,7 @@ export default {
       capsTooltip: false,
       loading: false,
       showDialog: false,
-      redirect: undefined,
+      redirect: undefined, // 初始了一个redirect
       otherQuery: {}
     }
   },
@@ -165,21 +166,46 @@ export default {
         this.$refs.password.focus()
       })
     },
+    ...mapActions('user', ['login']),
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
+      // 获取在refs里取了名字的组件
+      console.log(this.$refs)
+      // 调用组件里的validate方法,valid是boolean类型,验证通过走true,否则走false
+      this.$refs.loginForm.validate(async valid => {
         if (valid) {
-          this.loading = true
-          this.$store.dispatch('user/login', this.loginForm)
-            .then(() => {
-              this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
-              this.loading = false
-            })
-            .catch(() => {
-              this.loading = false
-            })
-        } else {
-          console.log('error submit!!')
-          return false
+          // // 这里是一个loading效果
+          // this.loading = true
+          // // 调用vuex的actions方法
+          // this.$store.dispatch('user/login', this.loginForm) // 返回了一个promise,链式调用规则,还可以使用async/await方法
+          //   .then(() => {
+          //     this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+          //     // 将loading效果关闭
+          //     this.loading = false
+          //   })
+          //   .catch(() => {
+          //     // 将loading效果关闭
+          //     this.loading = false
+          //   })
+          // 将异步改成了同步
+
+          // try {
+          //   await this.$store.dispatch('user/login', this.loginForm)
+          //   this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+          //   // 将loading效果关闭
+          //   this.loading = false
+          // } catch (e) {
+          //   //  将loading效果关闭
+          //   this.loading = false
+          // }
+          try {
+            await this.login(this.loginForm)
+            this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+            // 将loading效果关闭
+            this.loading = false
+          } catch (error) {
+            //  将loading效果关闭
+            this.loading = false
+          }
         }
       })
     },
