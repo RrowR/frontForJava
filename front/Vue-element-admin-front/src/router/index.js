@@ -135,6 +135,7 @@ export const asyncRoutes = [
     redirect: '/permission/page',
     alwaysShow: true, // will always show the root menu
     name: 'Permission',
+    //  meta为拥有角色的路由
     meta: {
       title: 'permission',
       icon: 'lock',
@@ -156,7 +157,7 @@ export const asyncRoutes = [
         name: 'DirectivePermission',
         meta: {
           title: 'directivePermission'
-          // if do not set roles, means: this page does not require permission
+          // if do not set roles, means: this page does not require permission   (这里也有做翻译)
         }
       },
       {
@@ -211,6 +212,7 @@ export const asyncRoutes = [
         component: () => import('@/views/example/edit'),
         name: 'EditArticle',
         meta: { title: 'editArticle', noCache: true, activeMenu: '/example/list' },
+        // 隐藏在面包屑中
         hidden: true
       },
       {
