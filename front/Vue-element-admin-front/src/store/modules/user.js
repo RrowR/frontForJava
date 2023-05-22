@@ -102,6 +102,8 @@ const actions = {
     commit('SET_NAME', name)
     commit('SET_AVATAR', avatar)
     commit('SET_INTRODUCTION', introduction)
+
+    // return
     return roles
   },
 
@@ -118,6 +120,7 @@ const actions = {
         // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
         dispatch('tagsView/delAllViews', null, { root: true })
 
+        // return
         resolve()
       }).catch(error => {
         reject(error)
