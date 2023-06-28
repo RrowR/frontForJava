@@ -72,6 +72,7 @@
       </div>
     </el-form>
 
+    <!-- 显示对话框 visible 是否可见 sync 对话框关闭会改回false -->
     <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog">
       {{ $t('login.thirdpartyTips') }}
       <br>
