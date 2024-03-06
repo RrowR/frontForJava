@@ -17,7 +17,7 @@ const options = {
         ...mapMutations(['updateName'])
     },
     data() {
-        return {
+        return {  
             name: '',
         };
     },
