@@ -68,6 +68,21 @@
 
 // =========== 1.6 箭头函数
 // 不需要再写function了
-let sum = (a,b) => a+b;
+// let sum = (a,b) => a+b;
 
-console.log(sum(13,2));
+// console.log(sum(13,2));
+
+// ========= 1.7 模板字符串
+// 用 ${取值},整个字符串用 ` 来 包裹
+
+let user = {
+    name:'张三',
+    age:20,
+    sex:'男'
+}
+
+let {name,age,sex} = user;
+
+let info =  `用户为${name},年龄为${age},性别为${sex}`
+console.log(info);
+
