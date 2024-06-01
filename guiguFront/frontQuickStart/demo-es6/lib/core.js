@@ -75,14 +75,33 @@
 // ========= 1.7 模板字符串
 // 用 ${取值},整个字符串用 ` 来 包裹
 
-let user = {
-    name:'张三',
-    age:20,
-    sex:'男'
-}
+// let user = {
+//     name:'张三',
+//     age:20,
+//     sex:'男'
+// }
 
-let {name,age,sex} = user;
+// let {name,age,sex} = user;
 
-let info =  `用户为${name},年龄为${age},性别为${sex}`
-console.log(info);
+// let info =  `用户为${name},年龄为${age},性别为${sex}`
+// console.log(info);
+
+// =========== 1.8 Promise  异步请求对象
+let url = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";   // 网络数据
+console.log(1);
+let promise = fetch(url);
+console.log(2);
+// promise.then 获取正常结果
+promise.then(resp => {
+    console.log("响应数据",resp);
+    // 需要调用 .then 才能获取到里面的数据
+    resp.json().then(data => {
+        console.log(data);
+    })
+});
+// promise.catch 获取异常结果
+promise.catch(err => {
+    console.log("错误为：",err);    // Failed to fetch
+});
+
 
