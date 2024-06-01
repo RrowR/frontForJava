@@ -50,10 +50,19 @@
 
 
 // =========== 1.4 链判断
-let message = null;
+// let message = null;
 
-// ?. 用于判断后面是否有值 
-let data = message?.data?.user?.name || 'default';
+// // ?. 用于判断后面是否有值 
+// let data = message?.data?.user?.name || 'default';
 
-console.log(data);
+// console.log(data);
+
+// ===========  1.5 参数默认值
+// 括号里的b=5直接设置为默认值，这样就可以下面调用方法的时候可以不传都可以
+// 但是要注意，默认值的参数必须放到最后面
+function add(a,b=5){
+    return a+b;
+}
+
+console.log(add(1,2));
 
