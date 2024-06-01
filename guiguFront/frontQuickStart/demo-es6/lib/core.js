@@ -60,9 +60,14 @@
 // ===========  1.5 参数默认值
 // 括号里的b=5直接设置为默认值，这样就可以下面调用方法的时候可以不传都可以
 // 但是要注意，默认值的参数必须放到最后面
-function add(a,b=5){
-    return a+b;
-}
+// function add(a,b=5){
+//     return a+b;
+// }
 
-console.log(add(1,2));
+// console.log(add(1,2));
 
+// =========== 1.6 箭头函数
+// 不需要再写function了
+let sum = (a,b) => a+b;
+
+console.log(sum(13,2));
