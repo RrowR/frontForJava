@@ -22,3 +22,38 @@
 // const c = 1;
 // c = 2;
 // console.log(c);  //Assignment to constant variable.
+
+
+// =========== 1.3 解构赋值
+// let arr = [1,2,3];
+
+// let [x,y,z] = arr;
+
+// console.log(x,y,z);
+
+// let person = {
+//     name:'张三',
+//     age:20,
+//     sex:'男'
+// }
+
+// let {name,age,sex} = person;
+
+// console.log(name,age,sex);
+
+// 结构复制方法
+// function fn({name,age,sex}){
+//     console.log(name,age,sex);
+// }
+
+// fn(person);
+
+
+// =========== 1.4 链判断
+let message = null;
+
+// ?. 用于判断后面是否有值 
+let data = message?.data?.user?.name || 'default';
+
+console.log(data);
+
