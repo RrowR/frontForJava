@@ -87,7 +87,7 @@
 // console.log(info);
 
 // =========== 1.8 Promise  异步请求对象
-// let url = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";   // 网络数据
+let url = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";   // 网络数据
 // console.log(1);
 // let promise = fetch(url);
 // console.log(2);
@@ -104,20 +104,43 @@
 //     console.log("错误为：",err);    // Failed to fetch
 // });
 
-// async 可以将一个方法封装成一个异步代码
-async function func1(){
-    let x = 101;
-    if(x%2 === 0){
-        return x;
-    }else{
-        throw new Error(`${x}不是偶数`);
-    }
+// =============== 1.9 async 可以将一个方法封装成一个异步代码
+// async function func1(){
+//     let x = 101;
+//     if(x%2 === 0){
+//         return x;
+//     }else{
+//         throw new Error(`${x}不是偶数`);
+//     }
+// }
+
+// func1().then(data => {
+//     console.log("data",data);
+// }).catch(err => {
+//     console.log("err",err);
+// })
+
+
+// ==================  2.0 await  同步方法
+
+// function fetchData(){
+//     let promise = fetch(url);
+//     promise.then(data =>{
+//         let promise2 = data.json();
+//         promise2.then(jdata => {
+//             console.log("jdata",jdata);
+//         })
+//     })
+// }
+
+// 使用 await 简化写法
+// 使用await 同步等待数据
+async function fetchData(){
+    let promise = await fetch(url);
+    let data = await promise.json();
+    console.log("data",data);
 }
 
-func1().then(data => {
-    console.log("data",data);
-}).catch(err => {
-    console.log("err",err);
-})
 
+fetchData();
 
