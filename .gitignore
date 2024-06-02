@@ -9,4 +9,6 @@ front/myvue2/client/node_modules/http-parser-js/http-parser.js
 
 /guiguFront/**/node_modules
 
-/guiguFront/frontQuickStart/demo02-npm/package-lock.json
+/guiguFront/frontQuickStart/**/package-lock.json
+
+/guiguFront/frontQuickStart/**/**/.vscode
